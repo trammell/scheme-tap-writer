@@ -1,0 +1,7 @@
+
+AC_INIT(foo,0.01)
+
+GUILE_SITE
+
+AC_OUTPUT
+
