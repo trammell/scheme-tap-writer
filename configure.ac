@@ -1,7 +1,7 @@
 
-AC_INIT(foo,0.01)
+AC_INIT(scheme-tap-writer)
 
-GUILE_SITE
+GUILE_SITE_DIR
 
-AC_OUTPUT
+AC_OUTPUT()
 
