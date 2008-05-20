@@ -1,0 +1,6 @@
+Changes for scheme-tap-writer
+
+0.01 / FIXME
+   * simple install script
+   * functions: plan, diag, ok, is, isnt
+

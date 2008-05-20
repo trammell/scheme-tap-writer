@@ -5,4 +5,22 @@ Guile extension library 'tap-writer'
 
 
 
+Development roadmap
+-------------------
+
+Version 0.01:
+   * working install script
+   * functions: plan, diag, ok, is, isnt
+
+Version 0.02:
+   * functions: like, unlike
+
+Version 0.03:
+   * TODO tests
+
+Version 0.04:
+   * skipped tests
+
+Version 0.05:
+   * BAIL OUT!
 
