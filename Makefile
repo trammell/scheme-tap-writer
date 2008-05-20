@@ -1,3 +1,4 @@
+
   sitedir := $(shell guile -c '(display (%site-dir))')
   instdir := $(sitedir)/tap
 

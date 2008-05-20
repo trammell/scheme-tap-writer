@@ -1,15 +1,10 @@
-; helper functions for generating TAP (Test Anything Protocol) output.  For
-; further discussion of TAP, see:
-;     http://search.cpan.org/dist/Test-Harness/lib/Test/Harness/TAP.pod
-;     http://testanything.org/
+;;; $Id$
 
 (define-module (test tap writer)
    #:export (plan no-plan ok is isnt diag))
 
 (define planned #f)
-(define planct 0)
-(define index 0)
-(define ntest #f)
+(define index #f)
 
 (define (diag1 msg)
   (simple-format #t "# ~a~%" msg))
@@ -32,9 +27,6 @@
                      (set! has-plan #t)
                      (simple-format #t "1..~a~%" max)
                      max))))
-
-; FIXME: need to implement this.  Not sure how to implement something
-; equivalent to Perl's END { ... } block in Scheme.
 
 (define (no-plan)
   (set! has-plan #f))
