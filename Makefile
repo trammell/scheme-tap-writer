@@ -1,6 +1,13 @@
-GS = @GUILE_SITE@
+site := $(shell guile etc/display-site-dir.scm)
 
-install:
-	$(INSTALL) my/*.scm $(instdir)
+$(site):
+	mkdir -p $(site)
+
+install: $(site)
+	@echo site: $(site)
+
+
+
+# 	$(INSTALL) my/*.scm $(instdir)
 
 
