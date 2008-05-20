@@ -1,12 +1,13 @@
-sitedir := $(shell guile -c '(display (%site-dir))')
+  sitedir := $(shell guile -c '(display (%site-dir))')
+  instdir := $(sitedir)/tap
 
 usage:
 	@echo "usage: make [install]"
 	@echo install directory is: $(sitedir)
 
-$(sitedir):
-	mkdir -p $(sitedir)
+$(instdir):
+	install -d $(instdir)
 
-install: $(site)
-	install -t $(sitedir)/tap/ src/tap/writer.scm
+install: $(instdir)
+	install -m 0644 -t $(instdir) src/tap/writer.scm
 
