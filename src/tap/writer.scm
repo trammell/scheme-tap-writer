@@ -1,10 +1,17 @@
 ;;; $Id$
 
 (define-module (test tap writer)
-   #:export (plan no-plan ok is isnt diag))
+   #:export (plan diag ok is isnt))
 
 (define planned #f)
 (define index #f)
+
+(define (plan n)
+  (cond (planned (error "Multiple calls to (plan)"))
+        (else (begin
+                (set! planned n)
+                (simple-format #t "1..~a~%" n)
+                n))))
 
 (define (diag msg)
    (map diag1 (string-split msg #\newline)))
