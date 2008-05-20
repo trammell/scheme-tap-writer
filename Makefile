@@ -12,3 +12,5 @@ $(instdir):
 install: $(instdir)
 	install -m 0644 -t $(instdir) src/tap/writer.scm
 
+test:
+
