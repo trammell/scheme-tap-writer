@@ -6,11 +6,11 @@
 (define planned #f)
 (define index #f)
 
+(define (diag msg)
+   (map diag1 (string-split msg #\newline)))
+
 (define (diag1 msg)
   (simple-format #t "# ~a~%" msg))
-
-(define (diag msg)
-   (map diag-single (string-split msg #\newline)))
 
 (define (display-ok)
   (begin (set! index (+ index 1))
@@ -50,3 +50,11 @@
   (cond ((equal? s1 s2) (display-not-ok))
         (else (display-ok))))
 
+;;; (define (like s re)
+;;;   (cond ((equal? s1 s2) (display-not-ok))
+;;;         (else (display-ok))))
+;;;
+;;; (define (unlike s re)
+;;;   (cond ((equal? s1 s2) (display-not-ok))
+;;;         (else (display-ok))))
+;;;
