@@ -1,6 +1,8 @@
 Changes for scheme-tap-writer
 
-0.01 / FIXME
+0.01 / Wed May 21 11:23:01 CDT 2008
    * simple install script
    * functions: plan, diag, ok, is, isnt
+   * documentation
+   * rudimentary test script
 
