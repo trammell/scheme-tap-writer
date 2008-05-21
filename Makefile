@@ -3,8 +3,11 @@
    instdir := $(sitedir)/tap
 
 usage:
-	@echo "usage: make [install]"
+	@echo "usage: make [test|clean|install]"
 	@echo install directory is: $(sitedir)
+
+clean realclean:
+	rm -f *.txt
 
 site:
 	-@echo guile site directory is: $(sitedir)
