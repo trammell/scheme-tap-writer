@@ -7,7 +7,8 @@ usage:
 	@echo install directory is: $(sitedir)
 
 clean realclean:
-	rm -f *.txt
+	rm -f *.txt *.tgz
+	rm -rf tap-writer-*
 
 site:
 	-@echo guile site directory is: $(sitedir)
@@ -24,4 +25,13 @@ test: testout.txt t/correct-test-output.txt
 
 testout.txt:
 	guile -L src t/*.scm > testout.txt
+
+   rel = tap-writer-0.01
+
+dist:
+	rm -rf $(rel)
+	mkdir $(rel)
+	cp -a Changes Makefile README src t $(rel)
+	find $(rel) -name '.svn' | xargs rm -rf
+	tar czf $(rel).tgz $(rel)
 
