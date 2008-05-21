@@ -13,10 +13,9 @@
 
 (define (plan n)
   (cond (planned (error "Multiple calls to (plan)"))
-        (else (begin
-                (set! planned n)
-                (simple-format #t "1..~a~%" n)
-                n))))
+        (else (begin (set! planned n)
+                     (simple-format #t "1..~a~%" n)
+                     n))))
 
 (define (diag msg)
    (map diag1 (string-split msg #\newline)))
@@ -39,17 +38,6 @@
   (begin (display "not ")
          (display-ok)))
 
-(define (no-plan)
-  (set! has-plan #f))
-
-(define (cleanup)
-  (cond (has-plan (diag "has plan"))
-        (else (begin
-                (simple-format #t "has-plan: ~a~%" has-plan)
-                (simple-format #t "1..~a~%" index)
-                (flush-all-ports)))))
-
-
 (define (is s1 s2)
   (cond ((equal? s1 s2) (display-ok))
         (else (display-not-ok))))
@@ -66,3 +54,6 @@
 ;;;   (cond ((equal? s1 s2) (display-not-ok))
 ;;;         (else (display-ok))))
 ;;;
+;;; (define (no-plan)
+;;;   (set! has-plan #f))
+
