@@ -1,0 +1,4 @@
+1..2
+# this is a comment
+ok 1
+not ok 2

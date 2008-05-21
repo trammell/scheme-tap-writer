@@ -16,5 +16,9 @@ $(instdir):
 install: $(instdir)
 	install -m 0644 -t $(instdir) src/tap/writer.scm
 
-test:
+test: testout.txt t/correct-test-output.txt
+	diff testout.txt t/correct-test-output.txt
+
+testout.txt:
+	guile -L src t/*.scm > testout.txt
 
