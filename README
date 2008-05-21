@@ -1,29 +1,78 @@
 Guile extension library 'tap-writer'
 ====================================
 
+The "tap-writer" guile module simplifies the generation of test output
+compliant with the Test Anything Protocol ("TAP").  TAP output at its simplest
+looks like this:
+
+   1..5
+   ok 1
+   not ok 2
+   # expected "foo", got "bar"
+   ok 3
+   ok 4
+   not ok 5
+
+The first line tells the user how many tests are to be run; the following lines
+report on the success or failure of the various tests (e.g. "ok 1") or provide
+feedback (e.g. a line whose first character is the "#" symbol).  Commands to
+generate this output would look something like this:
+
+   ; load Scheme code to be tested
+   (use-modules (tap writer))
+   (plan 5)
+   ; test my functions "foo", "bar", and "baz"
+   (ok (foo 1))            ; (foo 1) should equal #t
+   (ok (foo 2))            ; (foo 2) should also equal #t
+   (is (bar 2 3) 8)        ; (bar 2 3) should equal 8
+   (is (baz 'green) 'go)   ; (baz 'green) should go
+   (isnt (baz 'red) 'go)   ; (baz 'red' should not go
+
+Judging from the output, we got some unexpected output from test #2 ("(foo 2)")
+and test #5 ("(baz 'red)").
+
+This module borrows function names from the "Test-More" interface (see e.g.
+Perl modules Test::Simple and Test::More at
+http://search.cpan.org/dist/Test-Simple/).
 
 
+Requirements
+============
+As far as I know, this module only works with the Guile scheme interpreter (see
+e.g.  http://www.gnu.org/software/guile/).
 
+Installation
+============
+
+Choose one of the following:
+
+   1. Run "make install" from the command line, or
+   2. Copy file src/tap/writer.scm into your local "site" directory.  Your
+      interpreter may be able to tell you the path to your site dir by running
+      the command "(%site-dir)".
 
 Development roadmap
--------------------
+===================
 
 Version 0.01:
+   * sufficient documentation
    * working install script
    * functions: plan, diag, ok, is, isnt
    * a rudimentary test suite
 
 Version 0.02:
-   * functions: like, unlike
+   * add functions: like, unlike
+   * make unit tests self-hosting
    * core tests in place
+   * are there any code coverage utilities for guile?
 
 Version 0.03:
-   * TODO tests
-   * guile command-line "prove" script
+   * add "TODO tests" functionality
+   * add command-line "prove" script written in guile?
 
 Version 0.04:
-   * skipped tests
+   * add "skipped" functionality
 
 Version 0.05:
-   * BAIL OUT!
+   * add "BAIL-OUT" function
 
