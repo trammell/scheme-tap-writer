@@ -51,6 +51,23 @@ Choose one of the following:
       interpreter may be able to tell you the path to your site dir by running
       the command "(%site-dir)".
 
+
+Related Information
+===================
+
+The Guile Manual
+   http://www.gnu.org/software/guile/manual
+
+testanything.org
+   http://testanything.org
+
+Test::Harness
+   http://search.cpan.org/dist/Test-Harness/
+
+schemers.org
+   http://schemers.org/
+
+
 Development roadmap
 ===================
 
